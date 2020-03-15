@@ -3,6 +3,8 @@ package com.example.cowsandbulls;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -14,9 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import org.w3c.dom.Text;
 
 public class PlayActivity extends AppCompatActivity {
-
+    static DBHelper dbHelper;
+    static SQLiteDatabase db;
     EditText entered_word, g, g_next;
     String word, guess;
     TextView invalid, selected, br, cr, b, c, invalid_enter;
@@ -26,6 +30,8 @@ public class PlayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
+        dbHelper = new DBHelper(getApplicationContext(), "words.sqlite");
+        db = SQLiteDatabase.openDatabase(dbHelper.DB_PATH + dbHelper.DB_NAME, null, SQLiteDatabase.OPEN_READONLY);
 
         entered_word = (EditText) findViewById(R.id.word);
         enter = (Button) findViewById(R.id.enter);
@@ -59,6 +65,7 @@ public class PlayActivity extends AppCompatActivity {
         /*Write the dictionary logic here*/
         if(text.length() != 4)
             return  false;
+
         return true;
     }
 
@@ -68,21 +75,27 @@ public class PlayActivity extends AppCompatActivity {
         if(isValid(word)) {
             hideKeyboard(this);
             word = word.toLowerCase();
-            selected = (TextView) findViewById(R.id.selected);
-            b = (TextView) findViewById(R.id.bulls);
-            c = (TextView) findViewById(R.id.cows);
-            g = (EditText) findViewById(R.id.guess1);
+            Cursor cursor = db.rawQuery("SELECT * FROM words WHERE word='" + word + "';", new String[] {});
+            if(!cursor.moveToNext()) {
+                Toast.makeText(getApplicationContext(), "Sorry, but no such word exist.", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                selected = (TextView) findViewById(R.id.selected);
+                b = (TextView) findViewById(R.id.bulls);
+                c = (TextView) findViewById(R.id.cows);
+                g = (EditText) findViewById(R.id.guess1);
 
-            entered_word.setVisibility(View.INVISIBLE);
-            enter.setVisibility(View.INVISIBLE);
-            selected.setVisibility(View.VISIBLE);
-            b.setVisibility(View.VISIBLE);
-            c.setVisibility(View.VISIBLE);
-            g.setVisibility(View.VISIBLE);
-            submit.setVisibility(View.VISIBLE);
-            giveup.setVisibility(View.VISIBLE);
-            invalid_enter = (TextView) findViewById(R.id.invalid_enter);
-            invalid_enter.setVisibility(View.INVISIBLE);
+                entered_word.setVisibility(View.INVISIBLE);
+                enter.setVisibility(View.INVISIBLE);
+                selected.setVisibility(View.VISIBLE);
+                b.setVisibility(View.VISIBLE);
+                c.setVisibility(View.VISIBLE);
+                g.setVisibility(View.VISIBLE);
+                submit.setVisibility(View.VISIBLE);
+                giveup.setVisibility(View.VISIBLE);
+                invalid_enter = (TextView) findViewById(R.id.invalid_enter);
+                invalid_enter.setVisibility(View.INVISIBLE);
+            }
 
         }
         else {
@@ -176,8 +189,12 @@ public class PlayActivity extends AppCompatActivity {
         else if(guess_count == 10) g = (EditText) findViewById(R.id.guess10);
 
         guess = g.getText().toString();
-
-        if(isValid(guess)) {
+        Cursor cursor = db.rawQuery("SELECT * FROM words WHERE word='" + guess.toLowerCase() + "';", new String[] {});
+        if(!cursor.moveToNext()) {
+            Toast.makeText(getApplicationContext(), "Sorry, but no such word exist.", Toast.LENGTH_SHORT).show();
+            invalid.setVisibility(View.VISIBLE);
+        }
+        else if(isValid(guess)) {
             hideKeyboard(this);
             invalid = (TextView) findViewById(R.id.invalid);
             invalid.setVisibility(View.INVISIBLE);

@@ -16,12 +16,19 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 public class MainActivity extends AppCompatActivity {
-
+    DBHelper dbHelper;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button newgame = (Button) findViewById(R.id.newgame);
         Button instructions = (Button) findViewById(R.id.instructions);
+        dbHelper = new DBHelper(getApplicationContext(), "words.sqlite");
+        try {
+            dbHelper.importDataBaseFromAssets();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
         newgame.setOnClickListener(new View.OnClickListener() {
             @Override
