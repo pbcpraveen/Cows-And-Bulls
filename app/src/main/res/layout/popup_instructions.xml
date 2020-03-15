@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/gradient"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Instructions"
+        android:textColor="@android:color/black"
+        android:layout_gravity="center"
+        android:paddingLeft="50dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:background="@drawable/heading"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="These are the instructions of this\ngame hi my name jeff"
+        android:textColor="@android:color/black"
+       />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/close_popup"
+        android:background="@drawable/mybutton"
+        android:layout_gravity="center"
+        android:text="Okay!"
+
+        />
+</LinearLayout>

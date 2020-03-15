@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main_layout"
+    tools:context=".PlayActivity"
+    android:padding="50dp"
+    android:background="@drawable/play">
+
+    <EditText
+        android:id="@+id/word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter a word"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/giveup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Give Up!"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        android:paddingTop="10dp"
+        android:background="@drawable/giveup"
+        android:gravity="center_horizontal"
+        />
+
+    <Button
+        android:id="@+id/enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        android:layout_toRightOf="@+id/word"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/guess1"/>
+
+    <TextView
+        android:id="@+id/invalid_enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enter"
+        android:layout_marginLeft="22dp"
+        android:layout_toRightOf="@+id/word"
+        android:text="INVALID!"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/selected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Word Selected!"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="20dp"
+        android:layout_below="@+id/word"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
+
+    <TableLayout
+        android:id="@+id/bandc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selected"
+        android:layout_toRightOf="@+id/selected"
+        android:gravity="right">
+
+        <TableRow>
+            <TextView
+                android:id="@+id/bulls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BULLS"
+                android:textColor="#ab4b33"
+                android:padding="5dp"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/cows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="COWS"
+                android:textColor="#3e96c2"
+                android:visibility="invisible"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/b1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ab4b33"
+                android:gravity="center"
+                android:layout_marginTop="1dp"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/c1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#3e96c2"
+                android:gravity="center"
+                android:layout_marginTop="1dp"
+                android:visibility="invisible"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/b2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ab4b33"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/c2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#3e96c2"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/b3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ab4b33"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/c3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#3e96c2"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/b4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ab4b33"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/c4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#3e96c2"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/b5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ab4b33"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/c5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#3e96c2"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/b6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ab4b33"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/c6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#3e96c2"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/b7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ab4b33"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/c7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#3e96c2"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/b8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ab4b33"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/c8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#3e96c2"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/b9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ab4b33"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/c9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#3e96c2"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/b10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#ab4b33"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+
+            <TextView
+                android:id="@+id/c10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#3e96c2"
+                android:gravity="center"
+                android:layout_marginTop="31dp"
+                android:visibility="invisible"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <EditText
+        android:id="@+id/guess1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Guess 1"
+        android:layout_below="@+id/selected"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:id="@+id/guess2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Guess 2"
+        android:layout_below="@+id/guess1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:id="@+id/guess3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Guess 3"
+        android:layout_below="@+id/guess2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:id="@+id/guess4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Guess 4"
+        android:layout_below="@+id/guess3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:id="@+id/guess5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Guess 5"
+        android:layout_below="@+id/guess4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:id="@+id/guess6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Guess 6"
+        android:layout_below="@+id/guess5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:id="@+id/guess7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Guess 7"
+        android:layout_below="@+id/guess6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:id="@+id/guess8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Guess 8"
+        android:layout_below="@+id/guess7"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:id="@+id/guess9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Guess 9"
+        android:layout_below="@+id/guess8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:id="@+id/guess10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Guess 10"
+        android:layout_below="@+id/guess9"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:visibility="invisible"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_toLeftOf="@+id/guess1"
+        android:layout_below="@+id/selected"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/submit"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/invalid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submit"
+        android:layout_toLeftOf="@+id/guess1"
+        android:layout_marginRight="45dp"
+        android:text="INVALID!"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="invisible"/>
+
+</RelativeLayout>
